@@ -1,0 +1,41 @@
+{
+  "name": "authentication",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsx watch src/main/server.ts",
+    "build": "tsc",
+    "start": "node dist/src/main/server.js",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@types/express": "5.0.5",
+    "cors": "2.8.5",
+    "crypto": "1.0.1",
+    "dotenv": "16.3.1",
+    "express": "5.1.0",
+    "express-rate-limit": "8.2.1",
+    "helmet": "8.1.0",
+    "jwt-simple": "0.5.6",
+    "toobusy-js": "0.5.1",
+    "uuid": "11.1.0",
+    "zod": "3.22.4"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "8.2.0",
+    "@types/cors": "2.8.19",
+    "@types/jwt-simple": "0.5.36",
+    "@types/node": "20.8.9",
+    "@types/toobusy-js": "0.5.4",
+    "eslint": "8.52.0",
+    "ts-node": "10.9.1",
+    "tsx": "3.14.0",
+    "typescript": "5.2.2",
+    "vitest": "0.34.6",
+    "vitest-mock-extended": "1.3.1"
+  },
+  "repository": "https://github.com/LuizGustavoSena/3d-api.git",
+  "author": "Luiz Gustavo Banin de Sena <luizgbs1@gmail.com>",
+  "private": false
+}
