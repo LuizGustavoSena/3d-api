@@ -8,10 +8,22 @@ export class UserRepository implements IUserRepository {
     ) {};
 
     async create(user: IUser): Promise<void> {
-        throw new Error("Method not implemented.");
+        await this.prisma.user.create({
+            data: {
+                id: user.id,
+                username: user.username,
+                email: user.email,
+                password: user.password,
+                birthdate: user.birthdate
+            }
+        });
     }
 
     async someByEmail(email: string): Promise<boolean> {
-        throw new Error("Method not implemented.");
+        const user = await this.prisma.user.findByUnique({
+            where: { email }
+        });
+        
+        return !!user;
     }
 }
