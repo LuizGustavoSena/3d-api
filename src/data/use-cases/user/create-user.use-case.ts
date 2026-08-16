@@ -1,5 +1,5 @@
 import { UnprocessedEmailError } from "../../../domain/errors/user/unprocessed-email.error";
-import { RequestCreateUser, ResponseCreateUser } from "../../../domain/use-cases/account/create-account.use-case.interface";
+import { RequestCreateUser, ResponseCreateUser } from "../../../domain/use-cases/user/create-user.use-case.interface";
 import { IUsecase } from "../../../domain/use-cases/use-cases.interface";
 import { IEncrypt } from "../../protocols/encrypt";
 import { IUserRepository } from "../../protocols/repositories/user";
@@ -15,9 +15,9 @@ export class CreateUserUseCase implements IUsecase<RequestCreateUser, ResponseCr
     async execute(params: RequestCreateUser): Promise<ResponseCreateUser> {
         const { email } = params;
 
-        const haveEmail = await this.userRepository.someByEmail(email);
+        const user = await this.userRepository.findByEmail(email);
 
-        if (haveEmail)
+        if (!!user)
             throw new UnprocessedEmailError();
 
         const userId = this.uuid.generate();
