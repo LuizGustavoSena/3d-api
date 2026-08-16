@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client/extension";
-import { IUserRepository } from "../../../../data/protocols/repositories/user";
+import { IUserRepository, UpdateRefreshtokenParams } from "../../../../data/protocols/repositories/user";
 import { IUser } from "../../../../domain/models/user";
 
 export class UserRepository implements IUserRepository {
@@ -26,4 +26,14 @@ export class UserRepository implements IUserRepository {
         
         return user;
     }
+
+    async updateRefreshtoken(params: UpdateRefreshtokenParams): Promise<void> {
+        const { email, refreshToken } = params;
+        
+        await this.prisma.user.update({
+            where: { email },
+            data: { refreshToken }
+        });
+    }
+;
 }
