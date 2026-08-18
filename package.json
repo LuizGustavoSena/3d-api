@@ -13,17 +13,17 @@
   "dependencies": {
     "@prisma/adapter-pg": "7.9.1",
     "@prisma/client": "7.9.1",
-    "@types/express": "5.0.5",
+    "@types/express": "5.0.6",
     "cors": "2.8.5",
     "crypto": "1.0.1",
     "dotenv": "16.3.1",
-    "express": "5.1.0",
+    "express": "5.2.1",
     "express-rate-limit": "8.2.1",
     "helmet": "8.1.0",
     "jwt-simple": "0.5.6",
     "toobusy-js": "0.5.1",
     "uuid": "11.1.0",
-    "zod": "3.22.4"
+    "zod": "4.4.3"
   },
   "devDependencies": {
     "@faker-js/faker": "8.2.0",
