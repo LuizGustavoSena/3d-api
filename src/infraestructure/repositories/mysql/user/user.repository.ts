@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client/extension";
+import { PrismaClient } from "../../../../../generated/prisma/client";
 import { IUserRepository, UpdateRefreshtokenParams } from "../../../../data/protocols/repositories/user";
 import { IUser } from "../../../../domain/models/user";
 
@@ -20,7 +20,7 @@ export class UserRepository implements IUserRepository {
     }
 
     async findByEmail(email: string): Promise<IUser> {
-        const user = await this.prisma.user.findByUnique({
+        const user = await this.prisma.user.findUnique({
             where: { email }
         });
         

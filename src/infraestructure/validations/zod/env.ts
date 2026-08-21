@@ -1,4 +1,4 @@
-require('dotenv/config');
+import "dotenv/config";
 import { z } from "zod";
 import { InvalidEnvError } from "../../../domain/errors/sistem/invalid-env.error";
 

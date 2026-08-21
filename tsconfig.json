@@ -2,7 +2,7 @@
   "compilerOptions": {
     "strictNullChecks": false,
     "strictPropertyInitialization": false,
-    "target": "es2023",
+    "target": "ES2022",
     "module": "ESNext",
     "outDir": "./dist",
     "rootDir": "./",
