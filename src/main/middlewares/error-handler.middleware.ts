@@ -16,7 +16,7 @@ export function errorHandler(err: unknown, req: Request, res: Response, _next: N
             code: i.code,
         }));
 
-        return res.status(400).json({
+        return res.status(422).json({
             error: {
                 message: 'Erro de validação',
                 code: 'VALIDATION_ERROR',
