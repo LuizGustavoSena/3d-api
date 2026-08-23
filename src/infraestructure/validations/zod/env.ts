@@ -9,6 +9,10 @@ const schema = z.object({
     SECRET_IV_ENCRYPT: z.string(),
     NODE_ENV: z.enum(['dev', 'prd']),
     PORT: z.coerce.number().default(3000),
+    S3_BUCKET: z.string(),
+    S3_ACCESS_KEY_ID: z.string(),
+    S3_SECRET_ACCESS_KEY: z.string(),
+    S3_REGION: z.string(),
 });
 
 const _env = schema.safeParse({
