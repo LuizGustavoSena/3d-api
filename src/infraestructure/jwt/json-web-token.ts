@@ -1,4 +1,4 @@
-import { decode, encode } from "jwt-simple";
+import jwt from "jwt-simple";
 import { env } from "../validations/zod/env";
 import { RequestToken, ResponseToken, ResponseValidate } from "../../data/protocols/jwt";
 import { IJwt } from "../../data/protocols/jwt";
@@ -7,11 +7,11 @@ export class JsonWebToken implements IJwt {
     generate = (params: RequestToken): ResponseToken => {
         const issued = Date.now();
 
-        const token = encode(
+        const token = jwt.encode(
             {
                 ...params,
                 issued: issued,
-                expires: issued + env.EXPIRES_TOKEN_MILLISECONDS
+                expires: issued + 3600000
             },
             env.SECRET_KEY_TOKEN,
             "HS512"
@@ -22,7 +22,7 @@ export class JsonWebToken implements IJwt {
 
     validate = (token: string): ResponseValidate => {
         try {
-            const result = decode(token, env.SECRET_KEY_TOKEN, false, 'HS512');
+            const result = jwt.decode(token, env.SECRET_KEY_TOKEN, false, 'HS512');
 
             if (!result || result.expires < new Date())
                 return null;
