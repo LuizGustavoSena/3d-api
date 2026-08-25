@@ -6,4 +6,5 @@ export interface SetItemProps {
 
 export interface IStorage {
     setItem(params: SetItemProps): Promise<string>;
+    getUrlByKey(key: string): Promise<string>;
 }
