@@ -22,3 +22,14 @@ model User {
 
   @@map("users")
 }
+
+model Product {
+  id           String  @id
+  material     Int
+  name         String
+  printingTime Int     @map("printing_time")
+  value        Decimal @db.Decimal(10, 2)
+  imageKey     String  @map("image_key")
+
+  @@map("products")
+}
