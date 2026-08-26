@@ -1,20 +1,33 @@
 import { ZodType } from "zod";
 import type { Request, Response } from "express";
+import { IHttpResponse, StatusCodeEnum } from "../../data/protocols/http";
 
 export abstract class Controller<T> {
     protected abstract schema: ZodType<T>;
 
     async execute(
-        req: Request,
-        res: Response,
-    ): Promise<Response> {
-        const data = this.schema.parse(req.body);
+        body: T,
+    ): Promise<IHttpResponse> {
+        const data = this.schema.parse(body);
 
-        return this.handle(data, res);
+        return this.handle(data);
     }
 
     protected abstract handle(
         data: T,
-        res: Response,
-    ): Promise<Response>;
+    ): Promise<IHttpResponse>;
+}
+
+export function created(data?: any): IHttpResponse{
+    return {
+        data,
+        statusCode: StatusCodeEnum.CREATED
+    }
+}
+
+export function ok(data?: any): IHttpResponse{
+    return {
+        data,
+        statusCode: StatusCodeEnum.OK
+    }
 }
