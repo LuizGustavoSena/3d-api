@@ -1,7 +1,7 @@
-import { Controller } from "..";
+import { Controller, created } from "..";
+import { IHttpResponse } from "../../../data/protocols/http";
 import { CreateUserUseCase } from "../../../data/use-cases/user/create-user.use-case";
 import { createUserSchema, CreateUserSchema } from "../schema/zod/user/create.schema";
-import type { Response } from "express";
 
 export class CreateUserController extends Controller<CreateUserSchema> {
     protected schema = createUserSchema;
@@ -12,9 +12,9 @@ export class CreateUserController extends Controller<CreateUserSchema> {
         super() 
     };
 
-    protected async handle(data: CreateUserSchema, res: Response): Promise<Response> {
+    protected async handle(data: CreateUserSchema): Promise<IHttpResponse> {
         const user = await this.createUserUseCase.execute(data);
 
-        return res.status(201).json(user);
+        return created(user);
     }
 }
