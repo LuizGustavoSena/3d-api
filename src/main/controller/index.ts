@@ -6,11 +6,14 @@ export abstract class Controller<T> {
     protected abstract schema: ZodType<T>;
 
     async execute(
-        body: T,
-    ): Promise<IHttpResponse> {
-        const data = this.schema.parse(body);
+        req: Request,
+        res: Response
+    ): Promise<Response> {
+        const data = this.schema.parse(req.body);
 
-        return this.handle(data);
+        const response = await this.handle(data);
+
+        return res.status(response.statusCode).json(response.data);
     }
 
     protected abstract handle(
