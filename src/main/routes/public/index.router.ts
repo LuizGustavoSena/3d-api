@@ -1,8 +1,8 @@
 import express from "express";
-import { publickUserRouter } from "./user/index.router";
+import { publicUserRouter } from "./user/index.router";
 
 const publicRouters = express.Router();
 
-publicRouters.use('/user', publickUserRouter);
+publicRouters.use('/user', publicUserRouter);
 
 export default publicRouters;

@@ -3,9 +3,9 @@ import { factoryCreateUserController } from "../../../factories/controllers/user
 import { factoryController } from "../../../factories/controllers/index.factory";
 import { factoryLoginUserController } from "../../../factories/controllers/user/login.factory";
 
-const publickUserRouter = express.Router();
+const publicUserRouter = express.Router();
 
-publickUserRouter.post('/create', factoryController(factoryCreateUserController()));
-publickUserRouter.post('/login', factoryController(factoryLoginUserController()));
+publicUserRouter.post('/create', factoryController(factoryCreateUserController()));
+publicUserRouter.post('/login', factoryController(factoryLoginUserController()));
 
-export { publickUserRouter };
+export { publicUserRouter };
