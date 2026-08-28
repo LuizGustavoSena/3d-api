@@ -13,7 +13,7 @@ export class CreateUserController extends Controller<CreateUserSchema> {
     };
 
     protected async handle(data: CreateUserSchema): Promise<IHttpResponse> {
-        const user = await this.createUserUseCase.execute(data);
+        const user = await this.createUserUseCase.execute(data.body);
 
         return created(user);
     }

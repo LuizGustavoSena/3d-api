@@ -9,7 +9,7 @@ export abstract class Controller<T> {
         req: Request,
         res: Response
     ): Promise<Response> {
-        const data = this.schema.parse(req.body);
+        const data = this.schema.parse(req);
 
         const response = await this.handle(data);
 

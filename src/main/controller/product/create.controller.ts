@@ -13,7 +13,7 @@ export class CreateProductController extends Controller<CreateProductSchema> {
     }
 
     protected async handle(data: CreateProductSchema): Promise<IHttpResponse>{
-        const response = await this.createProductUseCase.execute(data);
+        const response = await this.createProductUseCase.execute(data.body);
 
         return created(response);
     }

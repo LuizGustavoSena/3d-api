@@ -13,7 +13,7 @@ export class LoginUserController extends Controller<LoginUserSchema> {
     };
 
     protected async handle(data: LoginUserSchema): Promise<IHttpResponse> {
-        const user = await this.loginUserUseCase.execute(data);
+        const user = await this.loginUserUseCase.execute(data.body);
 
         return created(user);
     }
