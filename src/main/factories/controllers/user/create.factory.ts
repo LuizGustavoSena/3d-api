@@ -1,4 +1,4 @@
-import { CreateUserController } from "../../../controller/user/create";
+import { CreateUserController } from "../../../controller/user/create.controller";
 import { factoryCreateUserUseCase } from "../../use-cases/user/create.factory";
 
 export function factoryCreateUserController() {

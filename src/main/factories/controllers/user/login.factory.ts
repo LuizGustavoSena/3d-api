@@ -1,4 +1,4 @@
-import { LoginUserController } from "../../../controller/user/login";
+import { LoginUserController } from "../../../controller/user/login.controller";
 import { factoryLoginUserUseCase } from "../../use-cases/user/login.factory";
 
 export function factoryLoginUserController() {
