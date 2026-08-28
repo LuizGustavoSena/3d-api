@@ -1,8 +1,7 @@
 import { Controller, created } from "..";
-import type { Response } from "express";
-import { loginUserSchema, LoginUserSchema } from "../schema/zod/user/login.schema";
 import { LoginUserUseCase } from "../../../data/use-cases/user/login-user.use-case";
 import { IHttpResponse } from "../../../data/protocols/http";
+import { LoginUserSchema, loginUserSchema } from "../../../infraestructure/validations/zod/user/login.schema";
 
 export class LoginUserController extends Controller<LoginUserSchema> {
     protected schema = loginUserSchema;

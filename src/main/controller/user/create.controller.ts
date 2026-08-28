@@ -1,7 +1,7 @@
 import { Controller, created } from "..";
 import { IHttpResponse } from "../../../data/protocols/http";
 import { CreateUserUseCase } from "../../../data/use-cases/user/create-user.use-case";
-import { createUserSchema, CreateUserSchema } from "../schema/zod/user/create.schema";
+import { createUserSchema, CreateUserSchema } from "../../../infraestructure/validations/zod/user/create.schema";
 
 export class CreateUserController extends Controller<CreateUserSchema> {
     protected schema = createUserSchema;
