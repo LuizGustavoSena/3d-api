@@ -14,7 +14,8 @@ export class UserRepository implements IUserRepository {
                 username: user.username,
                 email: user.email,
                 password: user.password,
-                birthdate: user.birthdate
+                birthdate: user.birthdate,
+                levelAccess: user.levelAccess
             }
         });
     }
@@ -29,11 +30,20 @@ export class UserRepository implements IUserRepository {
 
     async updateRefreshtoken(params: UpdateRefreshtokenParams): Promise<void> {
         const { email, refreshToken } = params;
-        
+
         await this.prisma.user.update({
             where: { email },
             data: { refreshToken }
         });
+    }
+
+    async getLevalAccessByEmail(email: string): Promise<number> {
+        const user = await this.prisma.user.findUnique({
+            where: { email },
+            select: { levelAccess: true }
+        });
+
+        return user?.levelAccess;
     }
 ;
 }
