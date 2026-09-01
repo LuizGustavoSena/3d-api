@@ -5,4 +5,5 @@ export interface IUser {
     password: string;
     birthdate: Date;
     refreshtoken?: string;
+    levelAccess: number;
 }

@@ -27,7 +27,8 @@ export class CreateUserUseCase implements IUsecase<RequestCreateUser, ResponseCr
             email,
             password: this.encrypt.encrypt(params.password),
             username: params.username,
-            birthdate: params.birthdate
+            birthdate: params.birthdate,
+            levelAccess: 1
         });
 
         return { id: userId };
