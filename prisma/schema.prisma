@@ -19,6 +19,7 @@ model User {
   password     String
   birthdate    DateTime
   refreshToken String?
+  levelAccess  Int      @map("level_access")
 
   @@map("users")
 }
