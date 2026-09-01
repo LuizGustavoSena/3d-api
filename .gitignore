@@ -3,3 +3,4 @@ node_modules/*
 .env
 dist/*
 AI_HARNESS.md
+AGENTS.md
