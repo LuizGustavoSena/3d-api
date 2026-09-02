@@ -4,6 +4,7 @@ import { InvalidEnvError } from "../../../domain/errors/sistem/invalid-env.error
 
 const schema = z.object({
     MYSQL_URL: z.string(),
+    MONGO_URL: z.string(),
     SECRET_KEY_TOKEN: z.string(),
     SECRET_KEY_ENCRYPT: z.string(),
     SECRET_IV_ENCRYPT: z.string(),
