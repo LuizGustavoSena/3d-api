@@ -2,14 +2,14 @@ import { ZodType } from "zod";
 import type { Request, Response } from "express";
 import { IHttpResponse, StatusCodeEnum } from "../../data/protocols/http";
 
-export abstract class Controller<T> {
-    protected abstract schema: ZodType<T>;
+export abstract class Controller<T = undefined> {
+    protected abstract schema?: ZodType<T>;
 
     async execute(
         req: Request,
         res: Response
     ): Promise<Response> {
-        const data = this.schema.parse(req);
+        const data = this.schema ? this.schema.parse(req) : undefined;
 
         const response = await this.handle(data);
 

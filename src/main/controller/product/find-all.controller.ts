@@ -1,10 +1,10 @@
 import { Controller, ok } from "..";
 import { IHttpResponse } from "../../../data/protocols/http";
 import { FindAllProductsUseCase } from "../../../data/use-cases/product/find-all-products.use-case";
-import { FindAllProductsSchema, findAllProductsSchema } from "../../../infraestructure/validations/zod/product/find-all.schema";
+import { ZodType } from "zod";
 
-export class FindAllProductsController extends Controller<FindAllProductsSchema> {
-    protected schema = findAllProductsSchema;
+export class FindAllProductsController extends Controller {
+    protected schema: ZodType<undefined> = undefined;
 
     constructor(
         private readonly findAllProductsUseCase: FindAllProductsUseCase
