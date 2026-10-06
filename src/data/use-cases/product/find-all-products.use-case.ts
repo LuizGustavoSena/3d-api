@@ -1,16 +1,16 @@
-import { ResponseFindAllProducts } from "../../../domain/use-cases/product/find-all-products.interface";
+import { ResponseFindAllProducts, GetALlProductParams } from "../../../domain/use-cases/product/find-all-products.interface";
 import { IUsecase } from "../../../domain/use-cases/use-cases.interface";
 import { IProductRepository } from "../../protocols/repositories/product";
 import { IStorage } from "../../protocols/storage";
 
-export class FindAllProductsUseCase implements IUsecase<void, ResponseFindAllProducts[]> {
+export class FindAllProductsUseCase implements IUsecase<GetALlProductParams, ResponseFindAllProducts[]> {
     constructor(
         private readonly productRepository: IProductRepository,
         private readonly storage: IStorage
     ) {}
 
-    async execute(): Promise<ResponseFindAllProducts[]> {
-        const products = await this.productRepository.findAll();
+    async execute(params: GetALlProductParams): Promise<ResponseFindAllProducts[]> {
+        const products = await this.productRepository.findAll(params);
 
         return Promise.all(
             products.map(async (product) => {

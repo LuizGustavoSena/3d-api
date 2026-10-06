@@ -6,3 +6,9 @@ export interface ResponseFindAllProducts {
     value: number;
     imageUrl: string;
 }
+
+export interface GetALlProductParams {
+    limit: number;
+    page: number;
+    category?: string;
+}
