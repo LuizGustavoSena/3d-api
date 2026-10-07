@@ -4,3 +4,4 @@ node_modules/*
 dist/*
 AI_HARNESS.md
 AGENTS.md
+/tests/TEST_HARNESS.md
