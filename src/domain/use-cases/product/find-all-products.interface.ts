@@ -10,5 +10,4 @@ export interface ResponseFindAllProducts {
 export interface GetALlProductParams {
     limit: number;
     page: number;
-    category?: string;
 }
