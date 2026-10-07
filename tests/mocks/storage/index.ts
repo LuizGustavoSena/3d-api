@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import { IStorage, SetItemProps } from "../../../src/data/protocols/storage";
 
 export class StorageMock implements IStorage {

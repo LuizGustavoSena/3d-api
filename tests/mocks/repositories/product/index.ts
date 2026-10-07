@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import { IProductRepository } from "../../../../src/data/protocols/repositories/product";
 import { IProduct } from "../../../../src/domain/models/product";
 import { GetALlProductParams } from "../../../../src/domain/use-cases/product/find-all-products.interface";

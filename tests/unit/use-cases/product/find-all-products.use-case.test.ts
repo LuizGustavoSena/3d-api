@@ -35,7 +35,7 @@ describe('FindAllProductsUseCase', () => {
             // ARRANGE
             const mockProduct = factoryValidProductData();
             productRepositoryMock.findAll.mockResolvedValue([mockProduct]);
-            storageMock.getUrlByKey('https://storage.test/images/test.png');
+            storageMock.getUrlByKey.mockResolvedValue('https://storage.test/images/test.png');
 
             // ACT
             const result = await sut.execute({ limit: 10, page: 1 });
