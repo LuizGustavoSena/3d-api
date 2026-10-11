@@ -91,7 +91,7 @@ importers:
         specifier: 5.2.2
         version: 5.2.2
       vite:
-        specifier: ^8.3.3
+        specifier: 8.3.3
         version: 8.3.3(@types/node@20.8.9)(jiti@2.7.0)(tsx@3.14.0)
       vitest:
         specifier: 0.34.6
