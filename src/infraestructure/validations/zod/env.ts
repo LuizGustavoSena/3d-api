@@ -3,8 +3,16 @@ import { z } from "zod";
 import { InvalidEnvError } from "../../../domain/errors/sistem/invalid-env.error";
 
 const schema = z.object({
-    MYSQL_URL: z.string(),
-    MONGO_URL: z.string(),
+    POSTGRES_HOST: z.string(),
+    POSTGRES_PORT: z.number(),
+    POSTGRES_USER: z.string(),
+    POSTGRES_PASSWORD: z.string(),
+    POSTGRES_DB: z.string(),
+    MONGO_HOST: z.string(),
+    MONGO_PORT: z.string(),
+    MONGO_USER: z.string(),
+    MONGO_PASSWORD: z.string(),
+    MONGO_COLLECTION: z.string(),
     SECRET_KEY_TOKEN: z.string(),
     SECRET_KEY_ENCRYPT: z.string(),
     SECRET_IV_ENCRYPT: z.string(),
