@@ -5,7 +5,7 @@ import { factoryLoginUserController } from "../../../factories/controllers/user/
 
 const publicUserRouter = express.Router();
 
-publicUserRouter.post('/create', factoryController(factoryCreateUserController()));
-publicUserRouter.post('/login', factoryController(factoryLoginUserController()));
+publicUserRouter.post('/signup', factoryController(factoryCreateUserController()));
+publicUserRouter.post('/signin', factoryController(factoryLoginUserController()));
 
 export { publicUserRouter };
