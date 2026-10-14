@@ -22,6 +22,7 @@ const schema = z.object({
     S3_ACCESS_KEY_ID: z.string(),
     S3_SECRET_ACCESS_KEY: z.string(),
     S3_REGION: z.string(),
+    URL_APPLY_CORS: z.string()
 });
 
 const _env = schema.safeParse({
